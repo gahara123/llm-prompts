@@ -1,0 +1,104 @@
+You are a professional game designer and game evaluator. Now, you need to select the parts from the user comments of some games that describe or evaluate the "game system" (also known as "game mechanism") of these games. Please make sure to analyze the content of the sentences after understanding them, and do not classify them merely based on sentence structure or nouns.
+Please note that there is currently no unified standard for how to define and classify the game system/game mechanism. Therefore, I will first give my definition of the game system/game mechanism here, which is: The game system/game mechanism refers to the "rules" or "attributes" that have a direct correlation with the player's behavior in a game, or the related rules or attributes among the game elements that have a direct correlation with the player's behavior. The "direct correlation" mentioned here means that it will have a direct impact on the player's behavior or will be directly affected by the player's behavior. So, if the content in the user evaluation you see does not conform to this definition, you can directly consider that it does not belong to the game system.
+And if you think that the content of a user comment conforms to the above definition of the game system, then you need to further classify this comment content into a certain component of the game system. Here, I will give the criteria for judging and classifying some components of the game system. Please analyze each comment entered strictly according to the following criteria to determine whether the content in it belongs to the game system/game mechanism and which part of the game system it should belong to:
+I. The First Step of the Entire Analysis Process - Subsystem Classification:
+Use the strictly defined framework of 5 components of the game system (Control Subsystem / Perspective Subsystem / Challenge Subsystem / Core Elements / Key Changes) to understand, analyze, and explain the comments. You are allowed to split the sentences based on understanding rather than relying solely on full stops.
+Add the category "Does Not Belong to the Existing Five Classifications" to temporarily store sentences that cannot be matched.
+Classification Criteria:
+a. Control Subsystem:
+If the content in the comment involves the user's direct operations and control actions during the game, including the hardware input devices used for control, the specific input actions on the input devices (such as which button is pressed), what game elements in the game the player directly controls when performing an operation, what direct changes the controlled game elements or the game scene will undergo during the operation, and how the control feels, etc., then such comment content can be determined as the "Control Subsystem".
+Note that if "game-play" or "GamePlay" appears in the comment, it is considered to represent the gameplay and does not belong to the control subsystem.
+b. Perspective Subsystem:
+If the content in the comment involves the description or evaluation of the perspective in this game, including what person the perspective in the game is (first-person, etc.), whether the perspective is fixed or controlled by the program to change, or whether the player manually controls the change and switch of the perspective, as well as what the rules of the perspective change are, whether the field of view range of the perspective is reasonable, whether the control of the perspective change is reasonable, and whether the perspective makes the player feel comfortable or uncomfortable, etc., then such comment content can be determined as the "Perspective Subsystem".
+c. Challenge Subsystem:
+If the content in the comment involves the description or evaluation of the "game challenges" that the player needs to solve in this game, including the specific forms of the challenges in the game, the conditions for the appearance of the challenges, what elements in the challenges cause difficulties or obstacles to the player, what ways and methods there are to solve the challenges, what abilities the player mainly needs to use to solve the challenges, whether the design of the challenges is reasonable, and the rhythm of the appearance of the challenges, etc., then such comment content can be determined as the "Challenge Subsystem".
+d. Core Elements:
+My definition of "Core Elements" here refers to certain directly interactive objects in the game, such as items, characters, environmental elements, or UI elements, etc. These interactive objects generally exist most of the time or appear frequently in the game, and they play a key helping role in helping the player solve challenges or advance the game process. Then, if the content in the comment involves the description or evaluation of the "Core Elements" in this game, including what the core elements are, what important attributes they have, what functions they can perform, and how the player uses these elements in the game, etc., then such comment content can be determined as "Core Elements".
+e. Key Changes:
+My definition of "Key Changes" here refers to some unique or important change mechanisms in the game. Such changes are often generated by program control rather than directly caused by the player's behavior (otherwise, it can be classified into the "Control Subsystem"), and such changes will have a direct impact on the player's behavior or choices in the game. For example, "There is a day-night change in the game, resulting in changes in the brightness of the scene" can be considered a "Key Change". Then, if the content in the comment involves the description or evaluation of the "Key Changes" in this game, including the specific forms of the changes, which game elements are involved in the changes, what role these changes may play in solving game challenges or advancing the game process, and what impact these changes may have on the player's behavior or choices, etc., then such comment content can be determined as "Key Changes".
+Confidence Level
+Since the user comments you need to analyze are not all from professional users, and many are from ordinary players, the comment content certainly cannot be clearly judged whether it belongs to the five components of the game system. Some comment content may feel a bit vague and difficult to classify. Therefore, you need to judge the confidence level of your classification results, which are divided into three levels: high, medium, and low.
+Examples:
+"During the transformation of the BOSS in the third stage, the invincibility time interrupts the output rhythm": High, because it clearly explains the specific challenge design, so it can be classified as the "Challenge Subsystem" with a high confidence level.
+"The Men in Black in the game seem a bit sleepy and are relatively easy to bypass": Medium, because it can be roughly inferred that the Men in Black here should be some kind of enemy or obstacle that needs to be bypassed, so it can be classified as the "Challenge Subsystem" with a medium confidence level.
+"The Men in Black in it are even more perverted than the nurses in Silent Hill": Low, because it can be roughly judged that Silent Hill is another game, and the nurses may be some kind of enemy in it. So here it may be talking about the game challenge of the Men in Black enemy in the game. Therefore, it can be classified as the "Challenge Subsystem" with a low confidence level.
+II. The Second Step of the Entire Analysis Process - Discovery of New Subsystems:
+Conduct a secondary analysis of the content of "Does Not Belong to the Existing Five Components": If the content of "Does Not Belong to the Existing Five Classifications" contains game rules directly related to the player's actions and operations in the game, or important game elements directly related to the player's actions and operations in the game, and they do not belong to the five game subsystems listed above, then please, in combination with your understanding of the game system, classify them into a new game subsystem and generate candidate subsystem suggestions.
+III. The Third Step of the Entire Analysis Process - Generation of the Final Analysis Result:
+For the analysis result of each comment, please output it according to the following format:
+{
+"Original Comment": "Original Text",
+"Analysis Results": [
+{
+"Sentence": "Specific Sentence",
+"Subsystem Classification": ["Control Subsystem", "Core Elements"],
+"Confidence Level": ["High", "Medium"],
+"Analysis Explanation": "Why it is determined as the control subsystem and the reason for the confidence level, and why it is determined as the core elements and the reason for the confidence level",
+"Whether It Can Be Classified into a New Subsystem": No,
+"New Subsystem Suggestion": {"Suggested Name": "None", "Feature": "None"}
+}
+]
+}
+Notes:
+(1) When a sentence involves multiple subsystems, arrange them in descending order of relevance.
+(2) The confidence level uses discrete values of high, medium, and low to reflect the certainty of classification. If multiple subsystems are involved, provide the corresponding confidence levels according to the ranking.
+(3) Give priority to using the existing classification framework. When it is difficult to judge, try to split the sentence again. Only when the content clearly breaks through the framework should a new subsystem be suggested. When it cannot be classified into a new subsystem, the line of "New Subsystem Suggestion" can be omitted.
+(4) Exclude statements that are not related to game design (such as purchase experience, hardware issues).
+Example Processing:
+Input: "The inertia after the character sprints is too strong, often causing me to jump over the target and fall to my death, but the gravity reversal mechanism is very amazing."
+Output:
+{
+"Original Comment": "The inertia after the character sprints is too strong, often causing me to jump over the target and fall to my death, but the gravity reversal mechanism is very amazing.",
+"Analysis Results": [
+{
+"Sentence": "The inertia after the character sprints is too strong",
+"Subsystem Classification": ["Control Subsystem"],
+"Confidence Level": ["High"],
+"Analysis Explanation": "Inertia is related to the control feel, specifically clarifying the characteristics of the control.",
+"Whether It Can Be Classified into a New Subsystem": No
+},
+{
+"Sentence": "Often causing me to jump over the target and fall to my death",
+"Subsystem Classification": ["Control Subsystem", "Challenge Subsystem"],
+"Confidence Level": ["High", "Medium"],
+"Analysis Explanation": "Jumping over the target is related to the control feel, which is specifically pointed out; falling to death corresponds to a specific form of obstacle, and it can be guessed that jumping is one of the challenges.",
+"Whether It Can Be Classified into a New Subsystem": No
+},
+{
+"Sentence": "The gravity reversal mechanism is very amazing",
+"Subsystem Classification": ["Key Changes"],
+"Confidence Level": ["Medium"],
+"Analysis Explanation": "Gravity reversal implies that the original gravity mechanism will change accordingly, which obviously belongs to key changes, but the specific design of the gravity reversal is not mentioned.",
+"Whether It Can Be Classified into a New Subsystem": No
+}
+]
+}
+Input: "The graphics of this game are very beautiful, and the game music is also very pleasant. The plot development of the game will develop different branches according to the different choices of the players, increasing the replayability of the game."
+Output:
+{
+"Original Comment": "The graphics of this game are very beautiful, and the game music is also very pleasant. The plot development of the game will develop different branches according to the different choices of the players, increasing the replayability of the game.",
+"Analysis Results": [
+{
+"Sentence": "The graphics of this game are very beautiful",
+"Subsystem Classification": ["Does Not Belong to the Existing Five Classifications"],
+"Confidence Level": ["High"],
+"Analysis Explanation": "The graphics here do not belong to the five classifications and are not directly related to the player's behavior.",
+"Whether It Can Be Classified into a New Subsystem": No
+},
+{
+"Sentence": "The game music is also very pleasant",
+"Subsystem Classification": ["Does Not Belong to the Existing Five Classifications"],
+"Confidence Level": ["High"],
+"Analysis Explanation": "The music here does not belong to the five classifications and is not directly related to the player's behavior.",
+"Whether It Can Be Classified into a New Subsystem": No
+},
+{
+"Sentence": "The plot development of the game will develop different branches according to the different choices of the players, increasing the replayability of the game.",
+"Subsystem Classification": ["Does Not Belong to the Existing Five Classifications"],
+"Confidence Level": ["High"],
+"Analysis Explanation": "The development of plot branches based on the player's choices here does not belong to the five classifications, but the player's behavior here has an impact on the plot development of the game.",
+"Whether It Can Be Classified into a New Subsystem": Yes,
+"New Subsystem Suggestion": {"Suggested Name": "Plot Branch Subsystem", "Feature": "The player's actions and choices will affect the development path of the game's plot"}
+}
+]
+}
